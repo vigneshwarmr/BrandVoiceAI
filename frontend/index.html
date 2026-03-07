@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrandVoice AI - Tweet Generator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>BrandVoice AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#" class="nav-link">Docs</a>
+                <a href="#" class="btn btn-outline">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="mobile-link">Home</a>
+        <a href="#features" class="mobile-link">Features</a>
+        <a href="#" class="mobile-link">Docs</a>
+        <a href="#" class="mobile-link">Get Started</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="heroSection">
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+                <div class="gradient-orb orb-3"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-sparkles"></i>
+                        <span>AI-Powered Content Generation</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Generate On-Brand Tweets
+                        <span class="gradient-text">with AI</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Turn your brand voice into powerful social media content. 
+                        Generate 10 tailored tweets in seconds based on your brand identity.
+                    </p>
+                </div>
+
+                <!-- Form Card -->
+                <div class="form-card glass-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Create Your Brand Voice</h2>
+                        <p class="card-subtitle">Fill in the details below to generate personalized tweets</p>
+                    </div>
+                    
+                    <form id="tweetForm" class="tweet-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="brandName" class="form-label">
+                                    <i class="fas fa-building"></i>
+                                    Brand Name <span class="optional">(optional)</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="brandName" 
+                                    name="brandName" 
+                                    class="form-input" 
+                                    placeholder="e.g., TechFlow"
+                                >
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="industry" class="form-label">
+                                    <i class="fas fa-industry"></i>
+                                    Industry / Category <span class="required">*</span>
+                                </label>
+                                <select id="industry" name="industry" class="form-select" required>
+                                    <option value="" disabled selected>Select an industry</option>
+                                    <option value="Tech">Technology</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Fitness">Fitness</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Food">Food & Beverage</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Travel">Travel</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="campaignObjective" class="form-label">
+                                <i class="fas fa-bullseye"></i>
+                                Campaign Objective <span class="required">*</span>
+                            </label>
+                            <select id="campaignObjective" name="campaignObjective" class="form-select" required>
+                                <option value="" disabled selected>Select an objective</option>
+                                <option value="Engagement">Engagement</option>
+                                <option value="Promotion">Promotion</option>
+                                <option value="Brand Awareness">Brand Awareness</option>
+                                <option value="Product Launch">Product Launch</option>
+                                <option value="Community Building">Community Building</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productDescription" class="form-label">
+                                <i class="fas fa-align-left"></i>
+                                Product Description <span class="required">*</span>
+                            </label>
+                            <textarea 
+                                id="productDescription" 
+                                name="productDescription" 
+                                class="form-textarea" 
+                                rows="4" 
+                                placeholder="Describe your brand's product, service, or key messaging..."
+                                required
+                            ></textarea>
+                            <span class="char-count" id="charCount">0 / 500</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-generate" id="generateBtn">
+                            <span class="btn-text">
+                                <i class="fas fa-magic"></i>
+                                Generate Tweets
+                            </span>
+                            <span class="btn-loader hidden">
+                                <i class="fas fa-circle-notch fa-spin"></i>
+                                Analyzing & Generating...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Three simple steps to powerful brand content</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3 class="feature-title">1. Input Your Brand</h3>
+                        <p class="feature-desc">Enter your brand details, industry, and campaign objectives.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="feature-title">2. AI Analysis</h3>
+                        <p class="feature-desc">Our AI analyzes your inputs and infers your brand voice automatically.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="feature-title">3. Get Tweets</h3>
+                        <p class="feature-desc">Receive 10 on-brand tweets ready to post on Twitter.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section (Hidden by default) -->
+        <section class="results-section hidden" id="resultsSection">
+            <div class="container">
+                <!-- Brand Voice Summary -->
+                <div class="summary-card glass-card">
+                    <div class="summary-header">
+                        <div class="summary-title-wrapper">
+                            <i class="fas fa-fingerprint"></i>
+                            <h2 class="summary-title">Brand Voice Analysis</h2>
+                        </div>
+                        <span class="badge badge-success">AI Generated</span>
+                    </div>
+                    <div class="summary-content" id="brandVoiceSummary">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Tweets Grid -->
+                <div class="tweets-header">
+                    <h2 class="tweets-title">
+                        <i class="fab fa-twitter"></i>
+                        Generated Tweets
+                    </h2>
+                    <span class="tweet-count" id="tweetCount">10 tweets</span>
+                </div>
+
+                <div class="tweets-grid" id="tweetsGrid">
+                    <!-- Dynamic tweet cards will be inserted here -->
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="results-actions">
+                    <button class="btn btn-outline" id="backBtn">
+                        <i class="fas fa-arrow-left"></i>
+                        Generate New
+                    </button>
+                    <button class="btn btn-primary" id="copyAllBtn">
+                        <i class="fas fa-copy"></i>
+                        Copy All Tweets
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>BrandVoice AI</span>
+                    </div>
+                    <p class="footer-tagline">AI-powered social media content generation</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BrandVoice AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span class="toast-message" id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
