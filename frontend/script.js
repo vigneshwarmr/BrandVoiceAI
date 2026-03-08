@@ -10,7 +10,7 @@
 // ============================================
 const CONFIG = {
     // Backend API URL - change this to your Spring Boot server URL
-    API_BASE_URL:' https://brandvoiceai-3.onrender.com',
+    API_BASE_URL:'https://brandvoiceai-3.onrender.com',
     
     // API Endpoints
     ENDPOINTS: {
